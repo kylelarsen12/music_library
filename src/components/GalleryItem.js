@@ -11,8 +11,8 @@ function GalleryItem(props) {
   };
 
   const detailStyle = {
-    width: "80vw",
-    height: "20vh",
+    width: "384px",
+    height: "371px",
     border: "1px solid black",
     margin: "2px",
     backgroundImage: `url(${props.item.artworkUrl100})`,
