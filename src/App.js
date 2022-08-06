@@ -1,5 +1,5 @@
 //Imports
-import { useState, useRef } from "react";
+import { useState, useRef, Fragment } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Gallery from "./components/Gallery";
 import SearchBar from "./components/SearchBar";
@@ -43,11 +43,22 @@ function App() {
         <SearchBar />
       </SearchContext.Provider>
       {message}
-      <DataContext.Provider value={data}>
-        <Gallery />
-      </DataContext.Provider>
-      <AlbumView />
-      <ArtistView />
+      <Router>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Fragment>
+                <DataContext.Provider value={data}>
+                  <Gallery />
+                </DataContext.Provider>
+              </Fragment>
+            }
+          />
+          <Route path="/album/:id" element={<AlbumView />} />
+          <Route path="/artist/:id" element={<ArtistView />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
