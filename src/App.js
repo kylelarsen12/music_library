@@ -19,7 +19,7 @@ function App() {
   const handleSearch = (e, term) => {
     e.preventDefault();
     const fetchData = async () => {
-      document.title = `${term} Music`;
+      document.title = `${term}'s Music`;
       const response = await fetch(API_URL + term);
       const resData = await response.json();
       if (resData.results.length > 0) {
