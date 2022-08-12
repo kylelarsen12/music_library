@@ -38,6 +38,11 @@ function AlbumView() {
 
   return (
     <div>
+      {albumData.length > 0 ? (
+        <h2 className="albumName">{albumData[0].albumName}</h2>
+      ) : (
+        <h2 className="albumName">Loading Album...</h2>
+      )}
       {navButtons()}
       {renderSongs}
     </div>
